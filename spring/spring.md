@@ -188,3 +188,88 @@ AOP terminologies or concepts are as follows:
 * Interceptor
 * AOP Proxy
 * Weaving
+
+
+### 21) What is JoinPoint?
+
+JoinPoint is any point in your program such as field access, method execution, exception handling etc.
+
+### 22) Does spring framework support all JoinPoints?
+
+No, spring framework supports method execution joinpoint only.
+
+### 23) What is Advice?
+
+Advice represents action taken by aspect.
+
+### 24) What are the types of advice in AOP?
+
+There are 5 types of advices in spring AOP.
+
+1. Before Advice
+2. After Advice
+3. After Returning Advice
+4. Throws Advice
+5. Around Advice
+
+### 25) What is Pointcut?
+
+Pointcut is expression language of Spring AOP.
+
+### 26) What is Aspect?
+
+Aspect is a class in spring AOP that contains advices and joinpoints.
+
+### 27) What is Introduction?
+
+Introduction represents introduction of new fields and methods for a type.
+
+### 28) What is target object?
+
+Target Object is a proxy object that is advised by one or more aspects.
+
+### 29) What is interceptor?
+
+Interceptor is a class like aspect that contains one advice only.
+
+### 30) What is weaving?
+
+Weaving is a process of linking aspect with other application.
+
+### 31) Does spring perform weaving at compile time?
+
+No, spring framework performs weaving at runtime.
+
+### 32) What are the AOP implementation?
+
+There are 3 AOP implementation.
+
+1. Spring AOP
+2. Apache AspectJ
+3. JBoss AOP
+
+## Spring MVC Interview Questions
+
+### 33) What is the front controller class of Spring MVC?
+
+The **DispatcherServlet** class works as the front controller in Spring MVC.
+
+### 34) What does @Controller annotation?
+
+The **@Controller** annotation marks the class as controller class. It is applied on the class.
+
+### 35) What does @RequestMapping annotation?
+
+The **@RequestMapping** annotation maps the request with the method. It is applied on the method.
+
+### 36) What does the ViewResolver class?
+
+The **View Resolver** class resolves the view component to be invoked for the request. It defines prefix and suffix properties to resolve the view component.
+
+### 37) Which ViewResolver class is widely used?
+
+The **org.springframework.web.servlet.view.InternalResourceViewResolver** class is widely used.
+
+### 38) Does spring MVC provide validation support?
+
+Yes.
