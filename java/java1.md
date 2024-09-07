@@ -317,7 +317,7 @@ All object references are initialized to null in Java.
 
 ### 27) What is the constructor?
 
-The constructor can be defined as the special type of method that is used to initialize the state of an object. It is invoked when the class is instantiated, and the memory is allocated for the object. Every time, an object is created using the** ****new** keyword, the default constructor of the class is called. The name of the constructor must be similar to the class name. The constructor must not have an explicit return type.
+The constructor can be defined as the special type of method that is used to initialize the state of an object. It is invoked when the class is instantiated, and the memory is allocated for the object. Every time, an object is created using the **new** keyword, the default constructor of the class is called. The name of the constructor must be similar to the class name. The constructor must not have an explicit return type.
 
 [More Details.](https://www.javatpoint.com/constructor)
 
@@ -352,7 +352,7 @@ class Student3 {
 } 
 ```
 
-[Test it Now](https://www.javatpoint.com/opr/test.jsp?filename=Student3) 
+[Test it Now](https://www.javatpoint.com/opr/test.jsp?filename=Student3)
 
 Output:
 
@@ -503,3 +503,162 @@ a = 10 b = 15
 ```
 
 Here, the data type of the variables a and b, i.e., byte gets promoted to int, and the first parameterized constructor with the two integer parameters is called.
+
+### 37) What is the output of the following Java program?
+
+```java
+class Test  { 
+	int i;  
+} 
+public class Main  { 
+	public static void main (String args[])  { 
+		Test test = new Test();  
+		System.out.println(test.i); 
+	} 
+} 
+```
+
+The output of the program is 0 because the variable i is initialized to 0 internally. As we know that a default constructor is invoked implicitly if there is no constructor in the class, the variable i is initialized to 0 since there is no constructor in the class.
+
+### 38) What is the output of the following Java program?
+
+```java
+class Test  { 
+	int test_a, test_b; 
+	Test(int a, int b)  { 
+		test_a = a;  
+		test_b = b;  
+	} 
+	public static void main (String args[])  { 
+		Test test = new Test();  
+		System.out.println(test.test_a+" "+test.test_b); 
+	} 
+} 
+```
+
+There is a **compiler error** in the program because there is a call to the default constructor in the main method which is not present in the class. However, there is only one parameterized constructor in the class Test. Therefore, no default constructor is invoked by the constructor implicitly.
+
+---
+
+## Core Java - OOPs Concepts: static keyword Interview Questions
+
+---
+
+### 39) What is the static variable?
+
+The static variable is used to refer to the common property of all objects (that is not unique for each object), e.g., The company name of employees, college name of students, etc. Static variable gets memory only once in the class area at the time of class loading. Using a static variable makes your program more memory efficient (it saves memory). Static variable belongs to the class rather than the object.
+
+```java
+//Program of static variable  
+class Student8{ 
+	int rollno; 
+	String name; 
+	static String college ="ITS";  
+	Student8(int r,String n){ 
+		rollno = r; 
+		name = n; 
+	} 
+	void display (){
+		System.out.println(rollno+" "+name+" "+college);
+	}  
+	public static void main(String args[]){ 
+		Student8 s1 = new Student8(111,"Karan"); 
+		Student8 s2 = new Student8(222,"Aryan");  
+		s1.display(); 
+		s2.display(); 
+	} 
+} 
+```
+
+[Test it Now](https://www.javatpoint.com/opr/test.jsp?filename=Student8)
+
+```bash
+Output:111 Karan ITS 
+222 Aryan ITS
+```
+
+![Static Variable](https://static.javatpoint.com/images/staticvariable.JPG)
+
+[More Details.](https://www.javatpoint.com/static-keyword-in-java)
+
+### 40) What is the static method?
+
+* A static method belongs to the class rather than the object.
+* There is no need to create the object to call the static methods.
+* A static method can access and change the value of the static variable.
+
+[More Details.](https://www.javatpoint.com/static-keyword-in-java)---
+
+### 41) What are the restrictions that are applied to the Java static methods?
+
+Two main restrictions are applied to the static methods.
+
+* The static method can not use non-static data member or call the non-static method directly.
+* this and super cannot be used in static context as they are non-static.
+
+---
+
+### 42) Why is the main method static?
+
+Because the object is not required to call the static method. If we make the main method non-static, JVM will have to create its object first and then call main() method which will lead to the extra memory allocation.[ More Details.](https://www.javatpoint.com/static-keyword-in-java)
+
+---
+
+### 43) Can we override the static methods?
+
+No, we can't override static methods.
+
+### 44) What is the static block?
+
+Static block is used to initialize the static data member. It is executed before the main method, at the time of classloading.
+
+```java
+class A2{ 
+	static{
+		System.out.println("static block is invoked");
+	} 
+	public static void main(String args[]){ 
+		System.out.println("Hello main"); 
+	} 
+} 
+```
+
+[Test it Now](https://www.javatpoint.com/opr/test.jsp?filename=A2)
+
+```bash
+Output: static block is invoked 
+Hello main 
+```
+
+### 45) Can we execute a program without main() method?
+
+Ans) No, It was possible before JDK 1.7 using the static block. Since JDK 1.7, it is not possible. [More Details.](https://www.javatpoint.com/static-keyword-in-java)
+
+---
+
+### 46) What if the static modifier is removed from the signature of the main method?
+
+Program compiles. However, at runtime, It throws an error "NoSuchMethodError."
+
+---
+
+### 47) What is the difference between static (class) method and instance method?
+
+| static or class method                                                                                                                    | instance method                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| 1)A method that is declared as static is known as the static method.                                                                      | A method that is not declared as static is known as the instance method.  |
+| 2)We don't need to create the objects to call the static methods.                                                                         | The object is required to call the instance methods.                      |
+| 3)Non-static (instance) members cannot be accessed in the static context (static method, static block, and static nested class) directly. | Static and non-static variables both can be accessed in instance methods. |
+| 4)For example: public static int cube(int n){ return n*n*n;}                                                                            | For example: public void msg(){...}.                                      |
+
+---
+
+### 48) Can we make constructors static?
+
+As we know that the static context (method, block, or variable) belongs to the class, not the object. Since Constructors are invoked only when the object is created, there is no sense to make the constructors static. However, if you try to do so, the compiler will show the compiler error.
+
+---
+
+### 49) Can we make the abstract methods static in Java?
+
+In Java, if we make the abstract methods static, It will become the part of the class, and we can directly call it which is unnecessary. Calling an undefined method is completely useless therefore it is not allowed.
